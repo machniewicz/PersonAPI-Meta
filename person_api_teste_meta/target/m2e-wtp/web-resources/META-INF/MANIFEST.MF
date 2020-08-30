@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: person_api_teste_meta Maven Webapp
+Implementation-Version: 1.0
+Built-By: nmcz-mac
+Implementation-Vendor-Id: br.com.meta
+Build-Jdk: 1.8.0_152
+Implementation-URL: http://www.example.com
+Created-By: Maven Integration for Eclipse
+
