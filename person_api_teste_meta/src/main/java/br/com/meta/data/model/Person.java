@@ -56,6 +56,9 @@ public class Person  extends AbstractPersistable<Long> implements Serializable{
 	@Column(name="cpf_person", length = 11)
 	private String cpfPerson;
 	
+	@Column(name="address_person", nullable = false, length = 200)
+	private String addressPerson;
+	
 	/* Auditing BD*/
 	@Column(name = "created_by")
 	@CreatedBy
@@ -173,10 +176,19 @@ public class Person  extends AbstractPersistable<Long> implements Serializable{
 		this.modifiedDate = modifiedDate;
 	}
 
+	public String getAddressPerson() {
+		return addressPerson;
+	}
+
+	public void setAddressPerson(String addressPerson) {
+		this.addressPerson = addressPerson;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
+		result = prime * result + ((addressPerson == null) ? 0 : addressPerson.hashCode());
 		result = prime * result + ((cpfPerson == null) ? 0 : cpfPerson.hashCode());
 		result = prime * result + ((createdBy == null) ? 0 : createdBy.hashCode());
 		result = prime * result + ((createdDate == null) ? 0 : createdDate.hashCode());
@@ -201,6 +213,11 @@ public class Person  extends AbstractPersistable<Long> implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Person other = (Person) obj;
+		if (addressPerson == null) {
+			if (other.addressPerson != null)
+				return false;
+		} else if (!addressPerson.equals(other.addressPerson))
+			return false;
 		if (cpfPerson == null) {
 			if (other.cpfPerson != null)
 				return false;
@@ -262,5 +279,4 @@ public class Person  extends AbstractPersistable<Long> implements Serializable{
 	}
 	
 	
-
 }
